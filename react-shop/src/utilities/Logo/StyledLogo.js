@@ -12,6 +12,7 @@ const StyledLogo = styled.a`
     );
     &:hover {
         cursor: pointer;
+        color: white;
     }
 `;
 

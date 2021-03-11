@@ -6,6 +6,7 @@ export const StyledFooterWrapper = styled.div`
     background-color: #2b331f;
     color: white;
     font-size: 20px;
+    padding: 20px;  
 `;
 
 export const StyledFooterContainer = styled.div`

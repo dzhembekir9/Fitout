@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
 export const StyledItemsWrapper = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
     background: linear-gradient(white, whitesmoke);
 `;
 
@@ -11,7 +8,6 @@ export const StyledItemWrapper = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid #bbc8ba;
-    width: 20%;
     height: 550px;
     position: relative;
     margin: 40px auto;
@@ -25,16 +21,15 @@ export const StyledItemContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     flex: 1;
-    box-shadow: rgb(0 0 0 / 9%) 0px 12px 24px 0px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 15px 20px 5px;
 `;
 
 export const StyledTitle = styled.h1`
     background-color: #2b331f;
     color: white;
     font-size: 30px;
-    margin: -3rem 1rem 0px;
+    margin: -3rem 1rem 1rem;
     text-align: center;
     transform: skew(-5deg) rotate(-1deg);
     text-shadow: rgb(0 0 0 / 10%) 2px 2px 0px;
@@ -56,6 +51,7 @@ background-color: #fab73d;
 export const StyledDescription = styled.p`
     font-size: 20px;
     padding: 10px;
+    text-align: center;
 `;
 
 export const StyledItemActionsWrapper = styled.div`
@@ -76,6 +72,6 @@ export const StyledItemAction = styled.div`
 
 export const StyledImage = (props) => {
     return (
-        <img style={{width: '350px', height: '400px'}} src={props.url} alt=""/>
+        <img style={{width: 'auto', height: '400px'}} src={props.url} alt=""/>
     )
 };

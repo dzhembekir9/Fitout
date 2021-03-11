@@ -6,8 +6,12 @@ const Item = (props) => {
 
             <StyledItemContentWrapper>
                 <StyledImage url={props.url} />
-                <StyledTitle>{props.title}</StyledTitle>
-                <StyledDescription>{props.description}</StyledDescription>
+                <StyledTitle>
+                    {props.title.length > 15 ? props.title.substring(0, 15) + '...' : props.title}
+                </StyledTitle>
+                <StyledDescription>
+                    {props.description.length> 20 ? props.description.substring(0, 20) + '...' : props.description}
+                </StyledDescription>
             </StyledItemContentWrapper>
 
             <StyledPrice>${props.price}</StyledPrice>
