@@ -5,8 +5,10 @@ export const StyledFooterWrapper = styled.div`
     flex-direction: column;
     background-color: #2b331f;
     color: white;
-    font-size: 20px;
-    padding: 20px;  
+    font-size: 15px;
+    padding: 20px;
+    bottom: -0px;
+    margin-top: 30px;
 `;
 
 export const StyledFooterContainer = styled.div`

@@ -3,12 +3,14 @@ import Logo from "../../components/Logo/Logo";
 import NavbarButton from "../../components/NavbarButton/NavbarButton";
 import { default as Wrapper } from "../../utilities/NavbarButton/StyledNavbarButtonWrapper";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <StyledNavbar>
-      <Logo title="Fitout" />
+      <Link to="/shop">
+        <Logo title="Fitout" />
+      </Link>
       <SearchBar />
       <Wrapper>
         <Link to="/shop">
@@ -18,7 +20,7 @@ const Navbar = () => {
           <NavbarButton text="Create" />
         </Link>
       </Wrapper>
-    </StyledNavbar>
+  </StyledNavbar>
   );
 };
 
