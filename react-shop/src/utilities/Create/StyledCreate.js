@@ -34,14 +34,16 @@ export const StyledButton = styled.button`
 
 export const StyledInput = styled.input`
     margin: 10px auto;
-    width: 300px;
+    width: 500px;
 `;
 
 export const StyledLabel = styled.label`
     font-size: 20px;
 `;
 
-export const StyledDes = styled.input`
+export const StyledDes = styled.textarea`
     font-size: 20px;
-    padding: 20px;
+    height: 100px;
+    resize: none;
+    width: 500px;
 `;

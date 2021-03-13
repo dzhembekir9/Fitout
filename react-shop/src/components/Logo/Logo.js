@@ -1,5 +1,4 @@
 import StyledLogo from '../../utilities/Logo/StyledLogo'
-import { Link } from 'react-router-dom'
 
 const Logo = (props) => {
     return (

@@ -1,78 +1,37 @@
-import Item from '../../components/Item/Item'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Item from '../../components/Item/Item'
 
-const MainContent = () => {
+const MainContent = (props) => {
 
-    const [products, setProducts] = useState([{}]);
+    const url = 'https://fitout-shop-default-rtdb.firebaseio.com/.json';
 
-    const getProducts = async () => {
-        try {
-            axios.get('https://fitout-shop-default-rtdb.firebaseio.com/.json').then(res => console.log(res.data));
-
-        } catch (err) {
-            console.log('Some error occured');
-            console.log(err);
-        }
-    }
+    const [isPending, setIsPending] = useState(false);
 
     useEffect(() => {
-        getProducts();
-    }, []);
+        setIsPending(true);
+        axios.get(url)
+                .then(res => {
+                    props.handleSetState(res.data);
+                    setIsPending(false);
+                })
+                .catch(err => {
+                    console.log(err);
+                });          
+    }, [url]);
 
     return (
 
         <div className="container">
-            {/* {products.map(product => product.title)} */}
+            <div className="row">
+                    {!isPending && props.state && 
+                    Object.values(props.state).map(x => 
+                    <div key={x.id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <Item title={x.title} description={x.description} price={x.price} url={x.url} key={x.id}/>
+                    </div>)}
+            </div>
         </div>
-
-        // <div className="container">
-        //     <div className="row justify-content-around">
-        //         <div className=" col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="MacMillan" description="asdasasdasdasdsssssss" price={96.99} url="https://www.dunhill.com/product_image/12249965vf/f/w750_be4e4e4.jpg"/>
-        //         </div>
-        //         <div className=" col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jacket" description="some desc" price={50.99} url="https://www.bfgcdn.com/1500_1500_90/004-1032-0211/canada-goose-macmillan-parka-winter-jacket.jpg"/>
-        //         </div>
-        //         <div className="justify-content-around col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jeans" description="lorem10000" price={30.99} url="https://i8.amplience.net/i/Lindex/7953567_766_PS_F/blue-hanna-wide-high-waist-jeans-with-cropped-leg?$fmtJpg$&$cache$&$crop$&$scaleFit$&$productDetailSwiper$&vw=600"/>
-        //         </div>
-        //     </div>
-        //     <div className="row">
-        //         <div className=" col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="MacMillan" description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" price={96.99} url="https://www.dunhill.com/product_image/12249965vf/f/w750_be4e4e4.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jacket" description="some desc" price={50.99} url="https://www.bfgcdn.com/1500_1500_90/004-1032-0211/canada-goose-macmillan-parka-winter-jacket.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jeans" description="lorem10000" price={30.99} url="https://i8.amplience.net/i/Lindex/7953567_766_PS_F/blue-hanna-wide-high-waist-jeans-with-cropped-leg?$fmtJpg$&$cache$&$crop$&$scaleFit$&$productDetailSwiper$&vw=600"/>
-        //         </div>
-        //     </div>
-        //     <div className="row">
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="MacMillan" description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" price={96.99} url="https://www.dunhill.com/product_image/12249965vf/f/w750_be4e4e4.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jacket" description="some desc" price={50.99} url="https://www.bfgcdn.com/1500_1500_90/004-1032-0211/canada-goose-macmillan-parka-winter-jacket.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jeans" description="lorem10000" price={30.99} url="https://i8.amplience.net/i/Lindex/7953567_766_PS_F/blue-hanna-wide-high-waist-jeans-with-cropped-leg?$fmtJpg$&$cache$&$crop$&$scaleFit$&$productDetailSwiper$&vw=600"/>
-        //         </div>
-        //     </div>
-        //     <div className="row">
-        //         <div className="col-lg-4 col-md-col-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="MacMillan" description="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" price={96.99} url="https://www.dunhill.com/product_image/12249965vf/f/w750_be4e4e4.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jacket" description="some desc" price={50.99} url="https://www.bfgcdn.com/1500_1500_90/004-1032-0211/canada-goose-macmillan-parka-winter-jacket.jpg"/>
-        //         </div>
-        //         <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 mx-md-5">
-        //             <Item title="Jeans" description="lorem10000" price={30.99} url="https://i8.amplience.net/i/Lindex/7953567_766_PS_F/blue-hanna-wide-high-waist-jeans-with-cropped-leg?$fmtJpg$&$cache$&$crop$&$scaleFit$&$productDetailSwiper$&vw=600"/>
-        //         </div>
-        //     </div>
-        // </div>
     );
 }
  
