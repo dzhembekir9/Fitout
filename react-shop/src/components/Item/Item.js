@@ -17,9 +17,8 @@ const Item = (props) => {
             <StyledPrice>${props.price}</StyledPrice>
 
             <StyledItemActionsWrapper>
-                
                 <StyledItemAction>Add to Cart</StyledItemAction>
-
+                <StyledItemAction>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>
         </StyledItemWrapper>
     );

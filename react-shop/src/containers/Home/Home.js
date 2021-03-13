@@ -8,8 +8,10 @@ const Home = (props) => {
     return (
         <div>
             <GlobalStyles />
-            <Navbar />
-            {props.page === 'home' ? <MainContent state={props.state} handleSetState={props.handleSetState}/> : props.page === 'create' ? <Create state={props.state} handleSetState={props.handleSetState}/> : null} 
+            <Navbar state={props.state} handleSetState={props.handleSetState}/>
+            {props.page === 'home' ? <MainContent state={props.state} handleSetState={props.handleSetState}/> 
+            : props.page === 'create' ? <Create state={props.state} handleSetState={props.handleSetState}/> 
+            : null} 
             <Footer />
         </div>
     );

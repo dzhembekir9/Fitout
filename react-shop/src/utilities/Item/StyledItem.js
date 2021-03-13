@@ -65,6 +65,9 @@ export const StyledItemAction = styled.div`
     padding: 10px;
     background: #546747;
     color: white;
+    &:first-child {
+        border-right: 1px solid #bbc8ba;
+    }
     &:hover {
         opacity: 0.7;
     }
