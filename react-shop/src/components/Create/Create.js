@@ -13,9 +13,10 @@ const Create = (props) => {
     const createProduct = () => {
         
         const newId = uuid();
-        setIsPending(true);
-
+        
         if (props.state.title && props.state.description && props.state.price) {
+            setIsPending(true);
+            
             axios({
                 method: 'post',
                 url: 'https://fitout-shop-default-rtdb.firebaseio.com/.json',
@@ -29,6 +30,9 @@ const Create = (props) => {
             }).then(() => {
                 setIsPending(false);
             })
+        }
+        else {
+            alert('Please, fill in all fields (except url)');
         }
 
     }

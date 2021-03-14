@@ -32,6 +32,11 @@ export const StyledSearchResultsWrapper = styled.div`
     top: 96px;
     z-index: 1;
     background-color: white;
+    @media (max-width: 1200px) {
+        top: 41px;
+        width: 100%;
+        left: 0;
+    }
 `;
 
 export const StyledSearchResultsContainer = styled.div`
