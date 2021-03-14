@@ -10,6 +10,7 @@ const StyledNavbar = styled.div`
     position: sticky;
     top: 0px; /* When the element reaches top: 10px, it becomes fixed. */
     z-index: 100;
+    box-shadow: 0 8px 15px #2b331f;
 `;
 
 export default StyledNavbar;

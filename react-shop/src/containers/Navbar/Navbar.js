@@ -5,7 +5,6 @@ import SearchBar from "../../components/SearchBar/SearchBar"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Burger from '../../components/Burger/Burger'
 import { StyledLink } from '../../utilities/Global/GlobalStyles'
-import { useState } from "react"
 
 const Navbar = (props) => {
 

@@ -7,7 +7,7 @@ const StyledNavbarButton = styled.a`
     font-size: 1.5em;
     cursor: pointer;
     color: white;
-    border: 1px solid #E1E1E1;
+    border: 2px solid #E1E1E1;
     margin: 10px;
     border-radius: 50px;
     text-decoration: none;
