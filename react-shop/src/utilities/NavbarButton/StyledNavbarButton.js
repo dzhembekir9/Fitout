@@ -10,8 +10,11 @@ const StyledNavbarButton = styled.a`
     border: 1px solid #E1E1E1;
     margin: 10px;
     border-radius: 50px;
+    text-decoration: none;
     &:hover {
-        color: white;
+        color: #2b331f;
+        background-color: white;
+        text-decoration: none;
     }
     @media (max-width: 1200px) {
         display: none;

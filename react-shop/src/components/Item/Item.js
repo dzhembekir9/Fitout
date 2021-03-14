@@ -20,6 +20,7 @@ const Item = (props) => {
                 <StyledItemAction>Add to Cart</StyledItemAction>
                 <StyledItemAction>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>
+            
         </StyledItemWrapper>
     );
 }

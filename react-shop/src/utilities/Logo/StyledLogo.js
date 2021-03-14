@@ -4,15 +4,15 @@ const StyledLogo = styled.a`
     padding: 5px 30px;
     color: white;
     text-transform: uppercase;
-    text-decoration: none;
     font-size: 50px;
     font-weight: bold;
-    transform: skew(
-        -10deg
-    );
+    transition: 0.5s;
     &:hover {
         cursor: pointer;
         color: white;
+        text-decoration: none;
+        opacity: 0.5;
+        transition: 0.5s;
     }
 `;
 

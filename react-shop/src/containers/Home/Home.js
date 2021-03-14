@@ -12,7 +12,7 @@ const Home = (props) => {
             {props.page === 'home' ? <MainContent state={props.state} handleSetState={props.handleSetState}/> 
             : props.page === 'create' ? <Create state={props.state} handleSetState={props.handleSetState}/> 
             : null} 
-            <Footer />
+            <Footer/>
         </div>
     );
 }

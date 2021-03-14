@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -8,6 +10,13 @@ const GlobalStyle = createGlobalStyle`
     line-height: 2;
     font-family: 'Roboto',sans-serif;
   }
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+}
 `;
  
 export default GlobalStyle;

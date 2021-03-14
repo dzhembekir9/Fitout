@@ -4,6 +4,12 @@ export const StyledSearchBarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 30%;
+    @media (max-width: 1200px) {
+        position: absolute;
+        top: 150px;
+        width: 100%;
+        left: 0; 
+    }
 `;
 
 export const StyledSearchBar = styled.input`
@@ -12,6 +18,9 @@ export const StyledSearchBar = styled.input`
     padding: 0 20px;
     font-size: 20px;
     border-radius: 50px;
+    @media (max-width: 1200px) {
+        border-radius: 0;   
+    }
 `;
 
 export const StyledSearchResultsWrapper = styled.div`

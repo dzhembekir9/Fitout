@@ -2,25 +2,26 @@ import StyledNavbar from "../../utilities/Navbar/StyledNavbar"
 import Logo from "../../components/Logo/Logo"
 import NavbarButton from "../../components/NavbarButton/NavbarButton"
 import SearchBar from "../../components/SearchBar/SearchBar"
-import { Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Burger from '../../components/Burger/Burger'
+import { StyledLink } from '../../utilities/Global/GlobalStyles'
+import { useState } from "react"
 
 const Navbar = (props) => {
 
   return (
-    <StyledNavbar>
-      <Link to="/shop">
+    <StyledNavbar style={{height: 'auto'}}>
+      <StyledLink to="/shop">
         <Logo title="Fitout" />
-      </Link>
+      </StyledLink>
       <SearchBar state={props.state} handleSetState={props.handleSetState}/>
       <div>
-        <Link to="/shop">
+        <StyledLink to="/shop">
           <NavbarButton text="Shop" />
-        </Link>
-        <Link to="/create">
+        </StyledLink>
+        <StyledLink to="/create">
           <NavbarButton text="Create" />
-        </Link>
+        </StyledLink>
         <Burger />
       </div>
   </StyledNavbar>

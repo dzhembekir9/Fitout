@@ -12,8 +12,11 @@ export const StyledItemWrapper = styled.div`
     position: relative;
     margin: 40px auto;
     background-color: white;
+    transition: 0.2s;
     &:hover {
         cursor: pointer;
+        transform: scale(1.03);
+        transition: 0.2s;
     }
 `;
 
