@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Burger from '../../components/Burger/Burger'
 import { StyledLink } from '../../utilities/Global/GlobalStyles'
 import LoadingBar from '../../components/LoadingBar/LoadingBar'
+import { useEffect } from 'react'
 
 const Navbar = (props) => {
 
@@ -25,9 +26,22 @@ const Navbar = (props) => {
         <StyledLink to="/create">
           <NavbarButton text="Create" />
         </StyledLink>
-        <Burger handleClick = {(e) => {
-          isOpen ? setIsOpen(false) : setIsOpen(true);
-        }}/>
+        <Burger isOpen={isOpen} setIsOpen={setIsOpen} handleClick = {
+          useEffect(() => {
+            const callback = () => {
+              console.log('2');
+              if (window.innerWidth > 1200) {
+                setIsOpen(false);
+              }
+            };
+        
+            window.addEventListener("resize", callback);
+        
+            return () => {
+              window.removeEventListener("resize", callback);
+            };
+          }, [isOpen])
+        }/>
       </div>
   </StyledNavbar>
   );
