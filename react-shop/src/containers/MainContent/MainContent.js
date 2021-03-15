@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import Item from '../../components/Item/Item'
 import Filter from '../../components/Filter/Filter'
-import LoadingBar from '../../components/LoadingBar/LoadingBar'
 
 const MainContent = (props) => {
+
+    console.log(props);
 
     const url = 'https://fitout-shop-default-rtdb.firebaseio.com/.json';
 
@@ -27,9 +28,19 @@ const MainContent = (props) => {
             <div className="row">
                 {props.isPending && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
                 {!props.isPending && props.state && 
-                Object.values(props.state).map(x => 
-                <div key={x.id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <Item title={x.title} description={x.description} price={x.price} url={x.url} key={x.id}/>
+                Object.entries(props.state).map(x => 
+                <div key={x[1].id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <Item 
+                        title={x[1].title}
+                        description={x[1].description}
+                        price={x[1].price}
+                        url={x[1].url}
+                        itemKey={x[0]}
+                        id={x[1].id}
+                        key={x[1].id}
+                        state={props.state}
+                        handleSetState={props.handleSetState}
+                    />
                 </div>)}
             </div>
         </div>

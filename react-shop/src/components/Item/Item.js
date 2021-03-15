@@ -1,6 +1,15 @@
-import { StyledItemWrapper, StyledTitle, StyledPrice, StyledImage, StyledItemActionsWrapper, StyledItemAction, StyledDescription, StyledItemContentWrapper } from '../../utilities/Item/StyledItem'
+import { StyledItemWrapper, StyledTitle, StyledPrice, StyledImage, StyledItemActionsWrapper, StyledItemAction, StyledDescription, StyledItemContentWrapper } 
+from '../../utilities/Item/StyledItem'
+import axios from 'axios'
 
 const Item = (props) => {
+
+    const handleDelete = () => {
+        axios.delete(`https://fitout-shop-default-rtdb.firebaseio.com/${props.itemKey}.json`);
+        const filtered = Object.values(props.state).filter(x => x.id !== props.id);
+        props.handleSetState(filtered);
+    }
+
     return (
         <StyledItemWrapper>
 
@@ -18,7 +27,7 @@ const Item = (props) => {
 
             <StyledItemActionsWrapper>
                 <StyledItemAction>Add to Cart</StyledItemAction>
-                <StyledItemAction>Delete Item</StyledItemAction>
+                <StyledItemAction onClick={handleDelete}>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>
             
         </StyledItemWrapper>
