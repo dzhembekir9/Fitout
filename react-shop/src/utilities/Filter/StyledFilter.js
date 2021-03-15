@@ -10,7 +10,7 @@ export const StyledFilterWrapper = styled.div`
     border-right: 0;
     border-left: 0;
     @media (max-width: 1200px) {
-        margin-top: 80px;
+        margin-top: 90px;
         margin-bottom: 0;
     }
 `;

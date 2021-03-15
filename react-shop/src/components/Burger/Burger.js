@@ -1,9 +1,12 @@
 import path from '../../images/burger-menu.png'
 import { StyledBurger } from '../../utilities/Burger/StyledBurger'
 
-const Burger = () => {
+const Burger = (props) => {
+
+    const { handleClick } = props;
+
     return (
-        <StyledBurger src={path} alt="burger-menu"/>
+        <StyledBurger onClick={(e) => handleClick(e)} src={path} alt="burger-menu"/>
     );
 }
  

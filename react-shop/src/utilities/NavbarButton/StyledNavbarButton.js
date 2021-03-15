@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const StyledNavbarButton = styled.a`
+    transition: 0.2s;
     padding: 1rem 3rem;
     -webkit-box-align: center;
     align-items: center;

@@ -3,12 +3,13 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import Item from '../../components/Item/Item'
 import Filter from '../../components/Filter/Filter'
+import DropDown from '../../components/DropDown/DropDown'
 
 const MainContent = (props) => {
 
-    console.log(props);
-
     const url = 'https://fitout-shop-default-rtdb.firebaseio.com/.json';
+
+    const { isOpen } = props;
 
     useEffect(() => {
         props.setIsPending(true);
@@ -24,6 +25,7 @@ const MainContent = (props) => {
 
     return (
         <div className="container">
+            {isOpen && <DropDown />}
             <Filter state={props.state} handleSetState={props.handleSetState}/>
             <div className="row">
                 {props.isPending && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
@@ -35,11 +37,12 @@ const MainContent = (props) => {
                         description={x[1].description}
                         price={x[1].price}
                         url={x[1].url}
-                        itemKey={x[0]}
-                        id={x[1].id}
                         key={x[1].id}
-                        state={props.state}
-                        handleSetState={props.handleSetState}
+                        handleDelete = {() => {
+                            axios.delete(`https://fitout-shop-default-rtdb.firebaseio.com/${x[0]}.json`);
+                            const filtered = Object.values(props.state).filter(prod => prod.id !== x[1].id);
+                            props.handleSetState(filtered);
+                        }}
                     />
                 </div>)}
             </div>

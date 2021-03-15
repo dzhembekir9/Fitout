@@ -3,12 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import uuid from 'react-uuid'
 import axios from 'axios'
 import { useState } from 'react'
+import DropDown from '../../components/DropDown/DropDown'
 
 const Create = (props) => {
 
     const errorImg = 'https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg';
 
     const [isPending, setIsPending] = useState(false);
+    const { isOpen } = props;
 
     const createProduct = () => {
         
@@ -40,6 +42,7 @@ const Create = (props) => {
     return (
         <div className="container">
             <StyledCreateWrapper className="row">
+                {isOpen && <DropDown />}
                 <h1>Add Product</h1>
 
                 <StyledCreateContainer className="col-md-6">

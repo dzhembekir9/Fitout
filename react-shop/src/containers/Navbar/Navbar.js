@@ -9,6 +9,8 @@ import LoadingBar from '../../components/LoadingBar/LoadingBar'
 
 const Navbar = (props) => {
 
+  const { isOpen, setIsOpen } = props;
+
   return (
     <StyledNavbar style={{height: 'auto'}}>
       {props.isPending && <LoadingBar />}
@@ -23,7 +25,9 @@ const Navbar = (props) => {
         <StyledLink to="/create">
           <NavbarButton text="Create" />
         </StyledLink>
-        <Burger />
+        <Burger handleClick = {(e) => {
+          isOpen ? setIsOpen(false) : setIsOpen(true);
+        }}/>
       </div>
   </StyledNavbar>
   );
