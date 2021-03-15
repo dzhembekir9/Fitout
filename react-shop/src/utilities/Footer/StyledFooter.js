@@ -7,7 +7,6 @@ export const StyledFooterWrapper = styled.div`
     color: white;
     font-size: 15px;
     padding: 20px;
-    bottom: -0px;
     margin-top: 30px;
 `;
 

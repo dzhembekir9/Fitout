@@ -5,11 +5,13 @@ import SearchBar from "../../components/SearchBar/SearchBar"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Burger from '../../components/Burger/Burger'
 import { StyledLink } from '../../utilities/Global/GlobalStyles'
+import LoadingBar from '../../components/LoadingBar/LoadingBar'
 
 const Navbar = (props) => {
 
   return (
     <StyledNavbar style={{height: 'auto'}}>
+      {props.isPending && <LoadingBar />}
       <StyledLink to="/shop">
         <Logo title="Fitout" />
       </StyledLink>

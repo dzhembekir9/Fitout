@@ -3,16 +3,12 @@ import { StyledFilter, StyledFilterWrapper, StyledSelect } from '../../utilities
 const Filter = (props) => {
     const products = Object.values(props.state);
 
-    const defaultProducts =  products.slice();
-    
     const handleFilter = (e) => {
         
         if (e.target.value === 'default') {
-            props.handleSetState(defaultProducts);
+            //TODO
         } else if (e.target.value === 'title-as') {
             props.handleSetState(products.sort((a, b) => a.title.localeCompare(b.title)));
-            console.log(defaultProducts);
-            console.log(products);
         } else if (e.target.value === 'title-des') {
             props.handleSetState(products.sort((a, b) => b.title.localeCompare(a.title)));
         } else if (e.target.value === 'price-as') {
