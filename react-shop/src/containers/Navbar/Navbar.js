@@ -21,15 +21,14 @@ const Navbar = (props) => {
       <SearchBar state={props.state} handleSetState={props.handleSetState}/>
       <div>
         <StyledLink to="/shop">
-          <NavbarButton text="Shop" />
+          <NavbarButton text="Shop"/>
         </StyledLink>
         <StyledLink to="/create">
-          <NavbarButton text="Create" />
+          <NavbarButton text="Create"/>
         </StyledLink>
         <Burger isOpen={isOpen} setIsOpen={setIsOpen} handleClick = {
           useEffect(() => {
             const callback = () => {
-              console.log('2');
               if (window.innerWidth > 1200) {
                 setIsOpen(false);
               }

@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const StyledLink = styled(Link)`
+  color: white;
   text-decoration: none;
   &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
