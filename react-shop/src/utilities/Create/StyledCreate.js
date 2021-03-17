@@ -34,7 +34,7 @@ export const StyledButton = styled.button`
 
 export const StyledInput = styled.input`
     margin: 10px auto;
-    width: 500px;
+    width: 100%;
 `;
 
 export const StyledLabel = styled.label`
@@ -46,4 +46,10 @@ export const StyledDes = styled.textarea`
     height: 100px;
     resize: none;
     width: 500px;
+    @media (max-width: 768px) {
+        width: 400px;
+    }
+    @media (max-width: 576px) {
+        width: 250px;
+    }
 `;

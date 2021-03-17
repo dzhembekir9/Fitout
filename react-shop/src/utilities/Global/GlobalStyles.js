@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 `;
 

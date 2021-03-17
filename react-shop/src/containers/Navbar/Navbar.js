@@ -13,7 +13,7 @@ const Navbar = (props) => {
   const { isOpen, setIsOpen } = props;
 
   return (
-    <StyledNavbar style={{height: 'auto'}}>
+    <StyledNavbar>
       {props.isPending && <LoadingBar />}
       <StyledLink to="/shop">
         <Logo title="Fitout" />

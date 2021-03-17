@@ -15,26 +15,47 @@ function App() {
           <Home
             page="home"
             state={products}
+            displayFooter={true}
             handleSetState={setProducts}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
           />
         </div>
       </Route>
-      <Route path="/shop">
+      <Route exact path="/shop">
         <Home
           page="home"
           state={products}
+          displayFooter={true}
           handleSetState={setProducts}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
         />
       </Route>
-      <Route path="/create">
+      <Route exact path="/create">
         <Home
           page="create"
           state={products}
+          displayFooter={true}
           handleSetState={setProducts}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      </Route>
+      <Route path="/item/:id">
+        <Home
+          state={products}
+          handleSetState={setProducts}
+          page="details"
+          displayFooter={true}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      </Route>
+      <Route path="*">
+        <Home
+          page="not-found"
+          displayFooter={false}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
         />

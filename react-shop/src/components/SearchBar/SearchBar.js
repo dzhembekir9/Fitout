@@ -8,7 +8,7 @@ const SearchBar = (props) => {
 
     const searchItem = (e) => {
 
-        if (e.target.value) {
+        if (e.target.value && props.state) {
             const res = Object.values(props.state)
             .filter(x => e.target.value.toLowerCase() === x.title.substring(0, e.target.value.length).toLowerCase());
 

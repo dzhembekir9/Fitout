@@ -4,12 +4,15 @@ import axios from 'axios'
 import Item from '../../components/Item/Item'
 import Filter from '../../components/Filter/Filter'
 import DropDown from '../../components/DropDown/DropDown'
+import { useHistory } from 'react-router'
+import Loader from '../../components/Loader/Loader'
 
 const MainContent = (props) => {
 
     const url = 'https://fitout-shop-default-rtdb.firebaseio.com/.json';
 
     const { isOpen } = props;
+    const history = useHistory();
 
     useEffect(() => {
         props.setIsPending(true);
@@ -20,7 +23,7 @@ const MainContent = (props) => {
                 })
                 .catch(err => {
                     console.log(err);
-                });          
+                });
     }, [url]);
 
     return (
@@ -28,7 +31,7 @@ const MainContent = (props) => {
             {isOpen && <DropDown />}
             <Filter state={props.state} handleSetState={props.handleSetState}/>
             <div className="row">
-                {props.isPending && <h1 style={{textAlign: 'center'}}>Loading...</h1>}
+            {props.isPending && <Loader />}
                 {!props.isPending && props.state && 
                 Object.entries(props.state).map(x => 
                 <div key={x[1].id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -38,10 +41,14 @@ const MainContent = (props) => {
                         price={x[1].price}
                         url={x[1].url}
                         key={x[1].id}
+                        id={x[1].id}
                         handleDelete = {() => {
-                            axios.delete(`https://fitout-shop-default-rtdb.firebaseio.com/${x[0]}.json`);
-                            const filtered = Object.values(props.state).filter(prod => prod.id !== x[1].id);
-                            props.handleSetState(filtered);
+                            axios.delete(`https://fitout-shop-default-rtdb.firebaseio.com/${x[0]}.json`)
+                                .then(() => {
+                                    const filtered = Object.values(props.state).filter(prod => prod.id !== x[1].id);
+                                    props.handleSetState(filtered);
+                                    history.push('/');
+                                });
                         }}
                     />
                 </div>)}

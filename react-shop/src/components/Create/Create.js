@@ -4,6 +4,7 @@ import uuid from 'react-uuid'
 import axios from 'axios'
 import { useState } from 'react'
 import DropDown from '../../components/DropDown/DropDown'
+import { useHistory } from 'react-router-dom'
 
 const Create = (props) => {
 
@@ -11,6 +12,7 @@ const Create = (props) => {
 
     const [isPending, setIsPending] = useState(false);
     const { isOpen } = props;
+    const history = useHistory();
 
     const createProduct = () => {
         
@@ -31,11 +33,13 @@ const Create = (props) => {
                 }
             }).then(() => {
                 setIsPending(false);
+                history.push('/shop');
             })
         }
         else {
             alert('Please, fill in all fields (except url)');
         }
+
 
     }
 

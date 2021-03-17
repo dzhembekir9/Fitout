@@ -5,10 +5,9 @@ const StyledNavbar = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 25px;
-    background: linear-gradient(#2b331f, #546747);
-    //background-color: #2b331f;
+    background: linear-gradient(to bottom right, #546747, #2b331f);
     position: sticky;
-    top: 0px; /* When the element reaches top: 10px, it becomes fixed. */
+    top: 0px;
     z-index: 100;
     box-shadow: 0 8px 15px #2b331f;
 `;

@@ -10,9 +10,10 @@ export const StyledLoadingBar = styled.div`
     animation-name: load;
     animation-duration: 0.4s;
     animation-iteration-count: 1;
+    animation-fill-mode: both;
 
     @keyframes load {
-        from {left: 0%;}
-        to {left: 100%;}
-      }
+      from {left: 0%;}
+      to {left: 100%;}
+    }
 `;
