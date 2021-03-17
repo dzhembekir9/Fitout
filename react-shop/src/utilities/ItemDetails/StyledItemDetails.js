@@ -32,6 +32,23 @@ export const StyledInfoContainer = styled.div`
 
 export const StyledRatingWrapper = styled.div`
     display: flex;
+    position: relative;
+`;
+
+export const StyledStar = styled.img`
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    &:hover {
+        width: 20px;
+        height: 20px;
+    }
+`;
+
+export const StyledStarWrapper = styled.div`
+    position: absolute;
+    top: -3px;
+    left: 35px;
 `;
 
 export const StyledChoiceContainer = styled.div`
@@ -65,23 +82,16 @@ export const StyledQuantity = styled.div`
 `;
 
 export const StyledAdd = styled.div`
-    align-self: center;
     text-align: center;
-    width: 25%;
-    margin-top: 15px;
+    margin: 15px 10px;
     border: 1px solid black;
     cursor: pointer;
-    border-radius: 5px;
-    background-color: #fddca5;
+    background-color: #546747;
+    color: white; 
+    padding: 5px;
     transition: 0.1s;
-    box-shadow: 0px 2px 0px 0px black;
     &:hover {
-        transition: 0.1s;
-        transform: translateY(-2px);
-    }
-    &:active {
-        transform: translateY(1px);
-        box-shadow: 0 0 0 0;
+        opacity: 0.8;
     }
 `;
 

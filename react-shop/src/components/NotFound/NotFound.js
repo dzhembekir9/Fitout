@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import DropDown from '../../components/DropDown/DropDown'
 import errorImg from '../../images/error.png'
 import { StyledNotFoundWrapper, StyledImg, StyledLink } from '../../utilities/NotFound/StyledNotFound'

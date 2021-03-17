@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { StyledItemDetailsWrapper, StyledImgContainer, StyledInfoContainer, StyledChoiceContainer, StyledImage, StyledRatingWrapper, 
-    StyledQuantityWrapper, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice} 
+    StyledQuantityWrapper, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice, StyledStar, StyledStarWrapper } 
 from '../../utilities/ItemDetails/StyledItemDetails'
+import starImage from '../../images/star.png'
 
 const ItemDetails = (props) => {
 
     const { isOpen, state, handleSetState, isPending, setIsPending } = props;
     const { id } = useParams();
-    let [quantity, setQuantity] = useState(0);
+    let [quantity, setQuantity] = useState(1);
 
     const url = `https://fitout-shop-default-rtdb.firebaseio.com/.json`;
 
@@ -31,7 +32,7 @@ const ItemDetails = (props) => {
         <div>
             {isOpen && <DropDown />}
             {!isPending && Object.values(state).filter(x => x.id === id).map(x => (
-                <div className="container">
+                <div key={x.id} className="container">
                     <div className="row">
                         <StyledItemDetailsWrapper className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <StyledImgContainer>
@@ -39,8 +40,14 @@ const ItemDetails = (props) => {
                             </StyledImgContainer>
                             <StyledInfoContainer>
                                 <StyledRatingWrapper>
-                                    <p>5.0</p>
-                                    <p>*****</p>
+                                    <p>5.0 /</p>
+                                    <StyledStarWrapper>
+                                        <StyledStar src={starImage} alt=""/>
+                                        <StyledStar src={starImage} alt=""/>
+                                        <StyledStar src={starImage} alt=""/>
+                                        <StyledStar src={starImage} alt=""/>
+                                        <StyledStar src={starImage} alt=""/>
+                                    </StyledStarWrapper>
                                 </StyledRatingWrapper>
                                 <h1>{x.title}</h1>
                                 <StyledPrice>Price: ${x.price}</StyledPrice>
@@ -55,12 +62,14 @@ const ItemDetails = (props) => {
                                         <div>43</div>
                                     </div>
                                     <h2>Select quantity:</h2>
-                                    <StyledQuantityWrapper>
-                                        <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity > 0 ? setQuantity(quantity -= 1) : null}>-</StyledQuantityButton>
-                                        <StyledQuantity>{quantity}</StyledQuantity>
-                                        <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity < 9 ? setQuantity(quantity += 1) : null}>+</StyledQuantityButton>
-                                    </StyledQuantityWrapper>
-                                    <StyledAdd>Add to cart</StyledAdd>
+                                    <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
+                                        <StyledQuantityWrapper>
+                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity > 1 ? setQuantity(quantity -= 1) : null}>-</StyledQuantityButton>
+                                            <StyledQuantity>{quantity}</StyledQuantity>
+                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity < 9 ? setQuantity(quantity += 1) : null}>+</StyledQuantityButton>
+                                        </StyledQuantityWrapper>
+                                        <StyledAdd>Add to cart</StyledAdd>
+                                    </div>
                                 </StyledChoiceContainer>
                             </StyledInfoContainer>
                         </StyledItemDetailsWrapper>
