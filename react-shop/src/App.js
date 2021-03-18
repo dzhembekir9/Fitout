@@ -52,6 +52,16 @@ function App() {
           setIsOpen={setIsOpen}
         />
       </Route>
+      <Route exact path="/cart">
+        <Home
+          state={products}
+          handleSetState={setProducts}
+          page="cart"
+          displayFooter={true}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      </Route>
       <Route path="*">
         <Home
           page="not-found"

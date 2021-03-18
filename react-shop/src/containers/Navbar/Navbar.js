@@ -7,6 +7,7 @@ import Burger from '../../components/Burger/Burger'
 import { StyledLink } from '../../utilities/Global/GlobalStyles'
 import LoadingBar from '../../components/LoadingBar/LoadingBar'
 import { useEffect } from 'react'
+import cart from '../../images/cart.png'
 
 const Navbar = (props) => {
 
@@ -20,6 +21,9 @@ const Navbar = (props) => {
       </StyledLink>
       <SearchBar state={props.state} handleSetState={props.handleSetState}/>
       <div>
+        <StyledLink to="/cart">
+          <img style={{marginRight: '20px'}} src={cart} alt=""/>
+        </StyledLink>
         <StyledLink to="/shop">
           <NavbarButton text="Shop"/>
         </StyledLink>

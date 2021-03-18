@@ -1,14 +1,24 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StyledItemWrapper, StyledTitle, StyledPrice, StyledImage, StyledItemActionsWrapper, StyledItemAction, StyledDescription, StyledItemContentWrapper } 
 from '../../utilities/Item/StyledItem'
 
 const Item = (props) => {
 
-    const { handleDelete, id } = props;
+    const { handleDelete, id, cart, setCart, state } = props;
 
     const linkStyle = {
         textDecoration: 'none',
         color: '#2b331f'
+    }
+
+    const handleAddToCart = () => {
+
+        const items = Object.values(state).filter(x => x.id === props.id);
+        const selectedItems = Object.assign({}, ...items)
+        
+        console.log(selectedItems);
+
     }
 
     return (
@@ -31,7 +41,7 @@ const Item = (props) => {
             </Link>
 
             <StyledItemActionsWrapper>
-                <StyledItemAction>Add to Cart</StyledItemAction>
+                <StyledItemAction onClick={handleAddToCart}>Add to Cart</StyledItemAction>
                 <StyledItemAction onClick={handleDelete}>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>
             

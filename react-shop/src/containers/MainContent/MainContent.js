@@ -20,6 +20,7 @@ const MainContent = (props) => {
                 .then(res => {
                     props.handleSetState(res.data);
                     props.setIsPending(false);
+                    props.setCart(Object.values(res.data));
                 })
                 .catch(err => {
                     console.log(err);
@@ -36,6 +37,9 @@ const MainContent = (props) => {
                 Object.entries(props.state).map(x => 
                 <div key={x[1].id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <Item 
+                        cart={props.cart}
+                        setCart={props.setCart}
+                        state={props.state}
                         title={x[1].title}
                         description={x[1].description}
                         price={x[1].price}

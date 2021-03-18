@@ -6,11 +6,13 @@ import Create from '../../components/Create/Create'
 import Footer from "../../components/Footer/Footer"
 import NotFound from '../../components/NotFound/NotFound'
 import ItemDetails from '../../components/ItemDetails/ItemDetails'
+import Cart from '../../components/Cart/Cart'
 
 const Home = (props) => {
 
     const [isPending, setIsPending] = useState(false);
     const { isOpen, setIsOpen, displayFooter } = props;
+    const [cart, setCart] = useState([]);
 
     return (
         <div>
@@ -29,6 +31,8 @@ const Home = (props) => {
                 isPending={isPending}
                 setIsPending={setIsPending}
                 isOpen={isOpen}
+                setCart={setCart}
+                cart={cart}
             /> 
             : props.page === 'create' ? 
             <Create
@@ -47,6 +51,12 @@ const Home = (props) => {
                 isOpen={isOpen}
                 isPending={isPending}
                 setIsPending={setIsPending}
+            />
+            : props.page === 'cart' ?
+            <Cart 
+                isOpen={isOpen}
+                cart={cart}
+                setCart={setCart}
             />
             : null} 
             {displayFooter && <Footer />}
