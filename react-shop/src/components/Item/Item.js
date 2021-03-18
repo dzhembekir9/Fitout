@@ -14,10 +14,16 @@ const Item = (props) => {
 
     const handleAddToCart = () => {
 
-        const items = Object.values(state).filter(x => x.id === props.id);
+        const items = Object.values(state).filter(x => x.id === id);
         const selectedItems = Object.assign({}, ...items)
         
         console.log(selectedItems);
+
+        setCart([...cart, {...selectedItems}]);
+
+        console.log(cart);
+
+        console.log('asdasd');
 
     }
 

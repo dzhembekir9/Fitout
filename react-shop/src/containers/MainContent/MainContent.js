@@ -20,7 +20,6 @@ const MainContent = (props) => {
                 .then(res => {
                     props.handleSetState(res.data);
                     props.setIsPending(false);
-                    props.setCart(Object.values(res.data));
                 })
                 .catch(err => {
                     console.log(err);
