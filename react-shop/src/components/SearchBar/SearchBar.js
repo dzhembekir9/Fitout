@@ -23,12 +23,12 @@ const SearchBar = (props) => {
         }
         else {
             setResult([]);
-        }
+        }   
     }
 
     return (
-        <StyledSearchBarWrapper onBlur={() => setResult([])}>
-            <StyledSearchBar onChange={e => searchItem(e)} placeholder="Search..."/>
+        <StyledSearchBarWrapper>
+            <StyledSearchBar onFocus={e => searchItem(e)} onChange={e => searchItem(e)} placeholder="Search..."/>
             <StyledSearchResultsWrapper>
                     { result.map(x => 
                     <Link onClick={() => setResult([])} key={x.id} to={`/item/${x.id}`} style={{textDecoration: 'none'}}>

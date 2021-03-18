@@ -5,6 +5,14 @@ export const StyledItemDetailsWrapper = styled.div`
     justify-content: center;
     border-top: 1px solid #2b331f;
     margin: 50px auto;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
+
+    @media (max-width: 576px) {
+        align-items: center;
+    }
 `;
 
 export const StyledImgContainer = styled.div`
@@ -27,6 +35,10 @@ export const StyledInfoContainer = styled.div`
         font-size: 22px;
         font-weight: bold;
         color: red
+    }
+    @media (max-width: 992px) {
+        justify-content: center;
+        min-width: 80%;
     }
 `;
 
@@ -63,8 +75,23 @@ export const StyledChoiceContainer = styled.div`
 
 export const StyledQuantityWrapper = styled.div`
     display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    
+    @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+    }
+`;
+
+export const StyledQuantityContainer = styled.div`
+    display: flex;
     justify-content: center;
     margin: 20px;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 `;
 
 export const StyledQuantityButton = styled.button`
@@ -100,8 +127,16 @@ export const StyledPrice = styled.p`
     font-weight: bold;
 `;
 
-export const StyledImage = (props) => {
-    return (
-        <img style={{width: 'auto', height: '500px'}} src={props.url} alt="Product"/>
-    )
-};
+export const StyledImg = styled.img`
+    width: auto;
+    height: 480px;
+
+    @media (max-width: 576px) {
+        height: 400px;
+    }
+
+    @media (max-width: 450px) {
+        height: 300px;
+    }
+
+`;

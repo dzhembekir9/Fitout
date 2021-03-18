@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { StyledItemDetailsWrapper, StyledImgContainer, StyledInfoContainer, StyledChoiceContainer, StyledImage, StyledRatingWrapper, 
-    StyledQuantityWrapper, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice, StyledStar, StyledStarWrapper } 
+    StyledQuantityContainer, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice, StyledStar, StyledStarWrapper, StyledQuantityWrapper, StyledImg } 
 from '../../utilities/ItemDetails/StyledItemDetails'
 import starImage from '../../images/star.png'
 
@@ -36,17 +36,17 @@ const ItemDetails = (props) => {
                     <div className="row">
                         <StyledItemDetailsWrapper className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <StyledImgContainer>
-                                <StyledImage url={x.url} />
+                                <StyledImg src={x.url} alt="Product"/>
                             </StyledImgContainer>
                             <StyledInfoContainer>
                                 <StyledRatingWrapper>
                                     <p>5.0 /</p>
                                     <StyledStarWrapper>
-                                        <StyledStar src={starImage} alt=""/>
-                                        <StyledStar src={starImage} alt=""/>
-                                        <StyledStar src={starImage} alt=""/>
-                                        <StyledStar src={starImage} alt=""/>
-                                        <StyledStar src={starImage} alt=""/>
+                                        <StyledStar src={starImage} alt="star"/>
+                                        <StyledStar src={starImage} alt="star"/>
+                                        <StyledStar src={starImage} alt="star"/>
+                                        <StyledStar src={starImage} alt="star"/>
+                                        <StyledStar src={starImage} alt="star"/>
                                     </StyledStarWrapper>
                                 </StyledRatingWrapper>
                                 <h1>{x.title}</h1>
@@ -62,14 +62,14 @@ const ItemDetails = (props) => {
                                         <div>43</div>
                                     </div>
                                     <h2>Select quantity:</h2>
-                                    <div style={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
-                                        <StyledQuantityWrapper>
+                                    <StyledQuantityWrapper> 
+                                        <StyledQuantityContainer>
                                             <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity > 1 ? setQuantity(quantity -= 1) : null}>-</StyledQuantityButton>
                                             <StyledQuantity>{quantity}</StyledQuantity>
                                             <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity < 9 ? setQuantity(quantity += 1) : null}>+</StyledQuantityButton>
-                                        </StyledQuantityWrapper>
+                                        </StyledQuantityContainer>
                                         <StyledAdd>Add to cart</StyledAdd>
-                                    </div>
+                                    </StyledQuantityWrapper>
                                 </StyledChoiceContainer>
                             </StyledInfoContainer>
                         </StyledItemDetailsWrapper>
