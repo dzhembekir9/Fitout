@@ -127,6 +127,19 @@ export const StyledPrice = styled.p`
     font-weight: bold;
 `;
 
+export const StyledSize = styled.p`
+    border: 1px solid black;
+    padding: 2px 10px;
+    margin-top: 10px;
+    background-color: #bbc8ba;
+    color: #2b331f;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
+`;
+
 export const StyledImg = styled.img`
     width: auto;
     height: 480px;

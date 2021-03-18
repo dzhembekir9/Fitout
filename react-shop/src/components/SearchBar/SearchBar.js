@@ -8,10 +8,10 @@ const SearchBar = (props) => {
     const [result, setResult] = useState([]);
 
     const searchItem = (e) => {
-
+        
         if (e.target.value && props.state) {
             const res = Object.values(props.state)
-            .filter(x => e.target.value.toLowerCase() === x.title.substring(0, e.target.value.length).toLowerCase());
+            .filter(x => x.title.toLowerCase().includes(e.target.value.toLowerCase()));
 
             if (res[0]) {
                 const allResults = res.map(x => x);

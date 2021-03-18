@@ -13,6 +13,7 @@ const Create = (props) => {
     const [isPending, setIsPending] = useState(false);
     const { isOpen } = props;
     const history = useHistory();
+    const [sizes, setSizes] = useState('');
 
     const createProduct = () => {
         
@@ -29,6 +30,7 @@ const Create = (props) => {
                   description: props.state.description,
                   price: props.state.price,
                   url: props.state.url || errorImg,
+                  availableSizes: sizes.split(','),
                   id: newId,
                 }
             }).then(() => {
@@ -63,6 +65,10 @@ const Create = (props) => {
 
                         <StyledLabel htmlFor="img">Image url:</StyledLabel>
                         <StyledInput onChange={e => props.handleSetState({...props.state, url: e.target.value})} type="text" name="img" id="img"/>
+                        
+                        <StyledLabel htmlFor="size">Available sizes (separated by one comma):</StyledLabel>
+                        <StyledInput onChange={e => setSizes(e.target.value)} type="text" name="size" id="sizes"/>
+
                     </StyledForm>
 
                     {!isPending && <StyledButton onClick={createProduct} className="create-blog-btn">Add Product</StyledButton>}

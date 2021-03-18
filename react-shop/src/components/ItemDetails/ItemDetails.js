@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { StyledItemDetailsWrapper, StyledImgContainer, StyledInfoContainer, StyledChoiceContainer, StyledImage, StyledRatingWrapper, 
+import { StyledItemDetailsWrapper, StyledImgContainer, StyledInfoContainer, StyledChoiceContainer, StyledSize, StyledRatingWrapper, 
     StyledQuantityContainer, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice, StyledStar, StyledStarWrapper, StyledQuantityWrapper, StyledImg } 
 from '../../utilities/ItemDetails/StyledItemDetails'
 import starImage from '../../images/star.png'
@@ -56,17 +56,14 @@ const ItemDetails = (props) => {
                                 <StyledChoiceContainer>
                                     <h2>Choose size:</h2>
                                     <div style={{display: 'flex'}}>
-                                        <div>40</div>
-                                        <div>41</div>
-                                        <div>42</div>
-                                        <div>43</div>
+                                        {x.availableSizes ? x.availableSizes.map(size => <StyledSize>{size}</StyledSize>) : <p>Out of stock</p>}
                                     </div>
                                     <h2>Select quantity:</h2>
                                     <StyledQuantityWrapper> 
                                         <StyledQuantityContainer>
-                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity > 1 ? setQuantity(quantity -= 1) : null}>-</StyledQuantityButton>
+                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity > 1 ? setQuantity(quantity - 1) : null}>-</StyledQuantityButton>
                                             <StyledQuantity>{quantity}</StyledQuantity>
-                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity < 9 ? setQuantity(quantity += 1) : null}>+</StyledQuantityButton>
+                                            <StyledQuantityButton style={{cursor: 'pointer'}} onClick={() => quantity < 9 ? setQuantity(quantity + 1) : null}>+</StyledQuantityButton>
                                         </StyledQuantityContainer>
                                         <StyledAdd>Add to cart</StyledAdd>
                                     </StyledQuantityWrapper>
