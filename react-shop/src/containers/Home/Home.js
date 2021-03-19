@@ -13,16 +13,20 @@ const Home = (props) => {
     const [isPending, setIsPending] = useState(false);
     const { isOpen, setIsOpen, displayFooter } = props;
     const [cart, setCart] = useState([]);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     return (
         <div>
             <GlobalStyles />
-            <Navbar 
+            <Navbar
                 state={props.state}
                 handleSetState={props.handleSetState}
                 isPending={isPending}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                isCartOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen}
+                cart={cart}
             />
             {props.page === 'home' ? 
             <MainContent 
@@ -56,10 +60,10 @@ const Home = (props) => {
             <Cart 
                 isOpen={isOpen}
                 cart={cart}
-                setCart={setCart}
+                state={props.state}
             />
             : null} 
-            {displayFooter && <Footer />}
+            {!isPending && displayFooter && <Footer />}
         </div>
     );
 }

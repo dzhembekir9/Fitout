@@ -7,6 +7,7 @@ import { StyledItemDetailsWrapper, StyledImgContainer, StyledInfoContainer, Styl
     StyledQuantityContainer, StyledAdd, StyledQuantityButton, StyledQuantity, StyledPrice, StyledStar, StyledStarWrapper, StyledQuantityWrapper, StyledImg } 
 from '../../utilities/ItemDetails/StyledItemDetails'
 import starImage from '../../images/star.png'
+import Loader from '../../components/Loader/Loader'
 
 const ItemDetails = (props) => {
 
@@ -31,6 +32,7 @@ const ItemDetails = (props) => {
     return (
         <div>
             {isOpen && <DropDown />}
+            {isPending && <Loader />}
             {!isPending && Object.values(state).filter(x => x.id === id).map(x => (
                 <div key={x.id} className="container">
                     <div className="row">

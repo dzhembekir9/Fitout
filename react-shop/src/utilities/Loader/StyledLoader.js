@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const StyledLoaderWrapper = styled.div`
     position: absolute;
+    top: 40%;
     left: 45%;
     width: 80px;
     height: 80px;

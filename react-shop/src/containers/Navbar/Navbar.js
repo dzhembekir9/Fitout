@@ -1,4 +1,4 @@
-import StyledNavbar from "../../utilities/Navbar/StyledNavbar"
+import { default as StyledNavbar, StyledImg } from "../../utilities/Navbar/StyledNavbar"
 import Logo from "../../components/Logo/Logo"
 import NavbarButton from "../../components/NavbarButton/NavbarButton"
 import SearchBar from "../../components/SearchBar/SearchBar"
@@ -7,11 +7,12 @@ import Burger from '../../components/Burger/Burger'
 import { StyledLink } from '../../utilities/Global/GlobalStyles'
 import LoadingBar from '../../components/LoadingBar/LoadingBar'
 import { useEffect } from 'react'
-import cart from '../../images/cart.png'
+import cartImg from '../../images/cart.png'
+import CartPreview from '../../components/CartPreview/CartPreview'
 
 const Navbar = (props) => {
 
-  const { isOpen, setIsOpen } = props;
+  const { state, isOpen, setIsOpen, isCartOpen, setIsCartOpen, cart } = props;
 
   return (
     <StyledNavbar>
@@ -21,9 +22,8 @@ const Navbar = (props) => {
       </StyledLink>
       <SearchBar state={props.state} handleSetState={props.handleSetState}/>
       <div>
-        <StyledLink to="/cart">
-          <img style={{marginRight: '20px'}} src={cart} alt=""/>
-        </StyledLink>
+        <StyledImg onClick={() => isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true)} src={cartImg} alt="cart"/>
+        {isCartOpen && <CartPreview setIsCartOpen={setIsCartOpen} state={state} cart={cart} />}
         <StyledLink to="/shop">
           <NavbarButton text="Shop"/>
         </StyledLink>

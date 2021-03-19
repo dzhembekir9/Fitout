@@ -12,4 +12,15 @@ const StyledNavbar = styled.div`
     box-shadow: 0 8px 15px #2b331f;
 `;
 
+export const StyledImg = styled.img`
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+        transition: 0.3s;
+    }
+`;
+
 export default StyledNavbar;
