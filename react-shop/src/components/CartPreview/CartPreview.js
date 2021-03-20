@@ -25,7 +25,7 @@ const CartPreview = (props) => {
     const arr = Object.entries(obj);
 
     return (
-        <div style={{display: 'flex', flexDirection: 'column', position: 'absolute', top: '120px', right: '100px'}}>
+        <div style={{display: 'flex', flexDirection: 'column', position: 'absolute', top: '120px', right: '130px'}}>
             <div style={{overflowY: 'scroll', maxHeight: '300px'}}>
                 {arr[0] && arr.map(x => <ItemPreview state={state} key={x[0]} id={x[0]} quantity={x[1]}/>) }
             </div>

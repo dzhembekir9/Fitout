@@ -16,11 +16,17 @@ export const StyledImg = styled.img`
     margin-right: 20px;
     cursor: pointer;
     transition: 0.3s;
+`;
 
-    &:hover {
-        opacity: 0.7;
-        transition: 0.3s;
-    }
+export const StyledItemsQuantity = styled.div`
+    position: absolute;
+    border: 1px solid whitesmoke;
+    border-radius: 50px;
+    background-color: #fab73d;
+    color: #2b331f;
+    top: 35px;
+    right: 17%;
+    padding: 0 10px;
 `;
 
 export default StyledNavbar;

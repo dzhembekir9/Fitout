@@ -14,6 +14,7 @@ const Home = (props) => {
     const { isOpen, setIsOpen, displayFooter } = props;
     const [cart, setCart] = useState([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [itemsInCart, setItemsInCart] = useState(0);
 
     return (
         <div>
@@ -27,6 +28,7 @@ const Home = (props) => {
                 isCartOpen={isCartOpen}
                 setIsCartOpen={setIsCartOpen}
                 cart={cart}
+                itemsInCart={itemsInCart}
             />
             {props.page === 'home' ? 
             <MainContent 
@@ -35,8 +37,9 @@ const Home = (props) => {
                 isPending={isPending}
                 setIsPending={setIsPending}
                 isOpen={isOpen}
-                setCart={setCart}
                 cart={cart}
+                setCart={setCart}
+                setItemsInCart={setItemsInCart}
             /> 
             : props.page === 'create' ? 
             <Create

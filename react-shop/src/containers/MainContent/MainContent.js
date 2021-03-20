@@ -11,7 +11,7 @@ const MainContent = (props) => {
 
     const url = 'https://fitout-shop-default-rtdb.firebaseio.com/.json';
 
-    const { isOpen } = props;
+    const { isOpen, setItemsInCart } = props;
     const history = useHistory();
 
     useEffect(() => {
@@ -36,6 +36,7 @@ const MainContent = (props) => {
                 Object.entries(props.state).map(x => 
                 <div key={x[1].id} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <Item 
+                        setItemsInCart={setItemsInCart}
                         cart={props.cart}
                         setCart={props.setCart}
                         state={props.state}

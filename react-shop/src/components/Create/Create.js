@@ -39,7 +39,7 @@ const Create = (props) => {
             })
         }
         else {
-            alert('Please, fill in all fields (except url)');
+            alert('Please, fill in all fields (except url and size)');
         }
 
 
