@@ -4,7 +4,7 @@ from '../../utilities/Item/StyledItem'
 
 const Item = (props) => {
 
-    const { handleDelete, id, cart, setCart, state, setItemsInCart } = props;
+    const { handleDelete, id, cart, setCart, state } = props;
 
     const linkStyle = {
         textDecoration: 'none',
@@ -42,7 +42,6 @@ const Item = (props) => {
             <StyledItemActionsWrapper>
                 <StyledItemAction onClick={() => {
                     handleAddToCart();
-                    //setItemsInCart(prev => prev + 1);
                 }}>Add to Cart</StyledItemAction>
                 <StyledItemAction onClick={handleDelete}>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>

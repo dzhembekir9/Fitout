@@ -40,7 +40,9 @@ export const StyledCheckout = styled.div`
 export const StyledCodeWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 50%;
+    margin-top: 20px;
+    position: sticky;
+    top: 180px;
 `;
 
 export const StyledCodeContainer = styled.div`
@@ -57,6 +59,8 @@ export const StyledCheckoutContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: sticky;
+    top: 470px;
 `;
 
 export const StyledPriceWrapper = styled.div`
@@ -97,6 +101,18 @@ export const StyledCheckoutBtn = styled.div`
     &:hover {
         background-color: #bbc8ba;
         transition: 0.2s;
+        color: #2b331f;
+    }
+`;
+
+export const StyledRemove = styled.div`
+    cursor: pointer;
+    color: #bbc8ba;
+    font-size: 18px;
+    transition: 0.1s;
+
+    &:hover {
+        transition: 0.1s;
         color: #2b331f;
     }
 `;

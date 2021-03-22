@@ -1,12 +1,12 @@
 import DropDown from '../../components/DropDown/DropDown'
 import { StyledCart, StyledCheckout, StyledWrapper, StyledCartWrapper, StyledCartContainer, StyledImgWrapper, StyledCodeWrapper, 
-    StyledCodeContainer, StyledCheckoutContainer, StyledPriceWrapper, StyledApplyBtn, StyledCheckoutBtn } 
+    StyledCodeContainer, StyledCheckoutContainer, StyledPriceWrapper, StyledApplyBtn, StyledCheckoutBtn, StyledRemove } 
 from '../../utilities/Cart/StyledCart'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Cart = (props) => {
 
-    const { isOpen, cart, state } = props;
+    const { isOpen, cart, state, setCart } = props;
 
     let obj = {};
 
@@ -27,6 +27,11 @@ const Cart = (props) => {
     const arr = Object.entries(obj);
     const items = arr.map(x => Object.values(state).filter(y => x[0] === y.id));
 
+    const handleRemoveFromCart = (id) => {
+        const filtered = cart.filter(x => x.id !== id);
+        setCart(filtered);
+    }
+
     return (
 
         <div className="container" style={{marginTop: '20px'}}>
@@ -44,7 +49,10 @@ const Cart = (props) => {
                                 <div style={{margin: '20px'}}>
                                     <h2>{item.title}</h2>
                                     <p>Product id: {item.id}</p>   
-                                    <h4>Quantity: {arr[index][1]}</h4> 
+                                    <h4>Quantity: {arr[index][1]}</h4>
+                                    <StyledRemove onClick={() => {
+                                        handleRemoveFromCart(arr[index][0]);
+                                    }}>Remove from cart</StyledRemove>
                                 </div>
                             </StyledCartContainer>
                             <p style={{fontSize: '20px', fontWeight: 'bold'}}>${item.price}</p>

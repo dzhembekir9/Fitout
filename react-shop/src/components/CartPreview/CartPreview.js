@@ -1,6 +1,7 @@
 import { StyledWrapper, StyledOrder, StyledPreviewWrapper } from '../../utilities/CartPreview/StyledCartPreview'
 import ItemPreview from '../../components/ItemPreview/ItemPreview'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 
 const CartPreview = (props) => {
 
@@ -24,7 +25,10 @@ const CartPreview = (props) => {
 
     const arr = Object.entries(obj);
 
-    setItemsInCart(Object.keys(obj).length);
+    useEffect(() => {
+        setItemsInCart(Object.keys(obj).length);
+    }, [cart])
+
 
     return (
         <StyledPreviewWrapper>
@@ -34,7 +38,7 @@ const CartPreview = (props) => {
             <StyledWrapper>
                 <h3>Total price: ${totalPrice.toFixed(2)}</h3>
                 <Link to="/cart" onClick={() => setIsCartOpen(false)} style={{textDecoration: 'none'}}>
-                    <StyledOrder>Order</StyledOrder>
+                    <StyledOrder>Checkout</StyledOrder>
                 </Link>
             </StyledWrapper>
         </StyledPreviewWrapper>

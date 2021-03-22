@@ -40,7 +40,6 @@ const Home = (props) => {
                 isOpen={isOpen}
                 cart={cart}
                 setCart={setCart}
-                setItemsInCart={setItemsInCart}
             /> 
             : props.page === 'create' ? 
             <Create
@@ -64,6 +63,7 @@ const Home = (props) => {
             <Cart 
                 isOpen={isOpen}
                 cart={cart}
+                setCart={setCart}
                 state={props.state}
             />
             : null} 
