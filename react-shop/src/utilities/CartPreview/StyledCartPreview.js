@@ -35,4 +35,11 @@ export const StyledPreviewWrapper = styled.div`
     position: absolute;
     top: 100px;
     right: 100px;
+
+    @media (max-width: 1200px) {
+        right: 50px;
+    }
+    @media (max-width: 576px) {
+        right: 0;
+    }
 `;

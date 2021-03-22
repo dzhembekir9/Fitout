@@ -11,6 +11,10 @@ export const StyledWrapper = styled.div`
     justify-content: space-between;
     max-width: 450px;
     width: 450px;
+    
+    @media (max-width: 476px) {
+        max-width: 350px;
+    }
 `;
 
 export const StyleImgWrapper = styled.div`

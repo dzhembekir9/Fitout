@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const StyledWrapper = styled.div`
     display: flex;
+
+    @media (max-width: 992px) {
+        flex-direction: column;
+    }
 `;
 
 export const StyledCartWrapper = styled.div`
@@ -12,6 +16,10 @@ export const StyledCartWrapper = styled.div`
 export const StyledCartContainer = styled.div`
     display: flex;
     align-items: center;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 `;
 
 export const StyledImgWrapper = styled.div`
@@ -29,6 +37,10 @@ export const StyledCart = styled.div`
     background-color: whitesmoke;
     padding: 10px 20px;
     border: 1px solid gainsboro;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+    }
 `;
 
 export const StyledCheckout = styled.div`
@@ -84,6 +96,21 @@ export const StyledApplyBtn = styled.div`
         background-color: #fddca5;
         transition: 0.2s;
         color: #2b331f;
+    }
+    
+    @media (max-width: 993px) {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    @media (max-width: 576px) {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    @media (max-width: 450px) {
+        margin-left: 20px;
+        margin-right: 20px;
     }
 `;
 
