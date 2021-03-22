@@ -10,6 +10,7 @@ export const StyledWrapper = styled.div`
     border-top: 1px;
     justify-content: space-between;
     max-width: 450px;
+    width: 450px;
 `;
 
 export const StyleImgWrapper = styled.div`

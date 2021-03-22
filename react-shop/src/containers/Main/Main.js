@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import GlobalStyles from '../../utilities/Global/GlobalStyles'
-import MainContent from '../../containers/MainContent/MainContent'
+import MainContent from '../MainContent/MainContent'
 import Create from '../../components/Create/Create'
 import Footer from "../../components/Footer/Footer"
 import NotFound from '../../components/NotFound/NotFound'
@@ -29,6 +29,7 @@ const Home = (props) => {
                 setIsCartOpen={setIsCartOpen}
                 cart={cart}
                 itemsInCart={itemsInCart}
+                setItemsInCart={setItemsInCart}
             />
             {props.page === 'home' ? 
             <MainContent 

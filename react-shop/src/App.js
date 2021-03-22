@@ -1,4 +1,4 @@
-import Home from './containers/Home/Home'
+import Main from './containers/Main/Main'
 import { useState } from 'react'
 
 import { Route, Switch } from "react-router";
@@ -12,7 +12,7 @@ function App() {
     <Switch>
       <Route exact path="/">
         <div className="App">
-          <Home
+          <Main
             page="home"
             state={products}
             displayFooter={true}
@@ -23,7 +23,7 @@ function App() {
         </div>
       </Route>
       <Route exact path="/shop">
-        <Home
+        <Main
           page="home"
           state={products}
           displayFooter={true}
@@ -33,7 +33,7 @@ function App() {
         />
       </Route>
       <Route exact path="/create">
-        <Home
+        <Main
           page="create"
           state={products}
           displayFooter={true}
@@ -43,7 +43,7 @@ function App() {
         />
       </Route>
       <Route path="/item/:id">
-        <Home
+        <Main
           state={products}
           handleSetState={setProducts}
           page="details"
@@ -53,7 +53,7 @@ function App() {
         />
       </Route>
       <Route exact path="/cart">
-        <Home
+        <Main
           state={products}
           handleSetState={setProducts}
           page="cart"
@@ -63,7 +63,7 @@ function App() {
         />
       </Route>
       <Route path="*">
-        <Home
+        <Main
           page="not-found"
           displayFooter={false}
           isOpen={isOpen}

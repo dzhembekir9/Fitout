@@ -1,10 +1,10 @@
-import { StyledWrapper, StyledOrder } from '../../utilities/CartPreview/StyledCartPreview'
+import { StyledWrapper, StyledOrder, StyledPreviewWrapper } from '../../utilities/CartPreview/StyledCartPreview'
 import ItemPreview from '../../components/ItemPreview/ItemPreview'
 import { Link } from 'react-router-dom'
 
 const CartPreview = (props) => {
 
-    const { cart, state, setIsCartOpen } = props;
+    const { cart, state, setIsCartOpen, setItemsInCart } = props;
 
     let obj = {};
  
@@ -24,8 +24,10 @@ const CartPreview = (props) => {
 
     const arr = Object.entries(obj);
 
+    setItemsInCart(Object.keys(obj).length);
+
     return (
-        <div style={{display: 'flex', flexDirection: 'column', position: 'absolute', top: '120px', right: '130px'}}>
+        <StyledPreviewWrapper>
             <div style={{overflowY: 'scroll', maxHeight: '300px'}}>
                 {arr[0] && arr.map(x => <ItemPreview state={state} key={x[0]} id={x[0]} quantity={x[1]}/>) }
             </div>
@@ -35,7 +37,7 @@ const CartPreview = (props) => {
                     <StyledOrder>Order</StyledOrder>
                 </Link>
             </StyledWrapper>
-        </div>
+        </StyledPreviewWrapper>
     );
 }
  

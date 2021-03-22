@@ -28,3 +28,11 @@ export const StyledOrder = styled.div`
         color: black;
     }
 `;
+
+export const StyledPreviewWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    right: 100px;
+`;

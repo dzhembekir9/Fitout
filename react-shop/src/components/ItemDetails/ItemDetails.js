@@ -58,7 +58,7 @@ const ItemDetails = (props) => {
                                 <StyledChoiceContainer>
                                     <h2>Choose size:</h2>
                                     <div style={{display: 'flex'}}>
-                                        {x.availableSizes ? x.availableSizes.map(size => <StyledSize key={size}>{size}</StyledSize>) : <p>Out of stock</p>}
+                                        {x.availableSizes ? x.availableSizes.map(size => <StyledSize key={size}>{size}</StyledSize>) : <p>No sizes available</p>}
                                     </div>
                                     <h2>Select quantity:</h2>
                                     <StyledQuantityWrapper> 

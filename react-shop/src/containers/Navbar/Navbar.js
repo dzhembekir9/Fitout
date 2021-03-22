@@ -12,7 +12,7 @@ import CartPreview from '../../components/CartPreview/CartPreview'
 
 const Navbar = (props) => {
 
-  const { state, isOpen, setIsOpen, isCartOpen, setIsCartOpen, cart, itemsInCart } = props;
+  const { state, isOpen, setIsOpen, isCartOpen, setIsCartOpen, cart, itemsInCart, setItemsInCart } = props;
 
   return (
     <StyledNavbar>
@@ -21,10 +21,10 @@ const Navbar = (props) => {
         <Logo title="Fitout" />
       </StyledLink>
       <SearchBar state={props.state} handleSetState={props.handleSetState}/>
-      <div>
+      <div style={{position: 'relative'}}>
         <StyledItemsQuantity>{itemsInCart}</StyledItemsQuantity>
         <StyledImg onClick={() => isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true)} src={cartImg} alt="cart"/>
-        {isCartOpen && <CartPreview setIsCartOpen={setIsCartOpen} state={state} cart={cart} />}
+        {isCartOpen && <CartPreview setIsCartOpen={setIsCartOpen} state={state} cart={cart} setItemsInCart={setItemsInCart}/>}
         <StyledLink to="/shop">
           <NavbarButton text="Shop"/>
         </StyledLink>

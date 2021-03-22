@@ -42,7 +42,7 @@ const Item = (props) => {
             <StyledItemActionsWrapper>
                 <StyledItemAction onClick={() => {
                     handleAddToCart();
-                    setItemsInCart(prev => prev + 1);
+                    //setItemsInCart(prev => prev + 1);
                 }}>Add to Cart</StyledItemAction>
                 <StyledItemAction onClick={handleDelete}>Delete Item</StyledItemAction>
             </StyledItemActionsWrapper>

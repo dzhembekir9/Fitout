@@ -24,9 +24,9 @@ export const StyledItemsQuantity = styled.div`
     border-radius: 50px;
     background-color: #fab73d;
     color: #2b331f;
-    top: 35px;
-    right: 17%;
-    padding: 0 10px;
+    top: -12px;
+    left: 20px;
+    padding: 0 12px;
 `;
 
 export default StyledNavbar;
