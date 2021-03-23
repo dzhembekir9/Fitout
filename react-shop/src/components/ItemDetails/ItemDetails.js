@@ -18,7 +18,7 @@ const ItemDetails = (props) => {
     const url = `https://fitout-shop-default-rtdb.firebaseio.com/.json`;
 
     useEffect(() => {
-        props.setIsPending(true);
+        setIsPending(true);
         axios.get(url)
                 .then(res => {
                     handleSetState(res.data);

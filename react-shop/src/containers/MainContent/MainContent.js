@@ -39,17 +39,12 @@ const MainContent = (props) => {
                         cart={cart}
                         setCart={setCart}
                         state={state}
-                        title={x[1].title}
-                        description={x[1].description}
-                        price={x[1].price}
-                        url={x[1].url}
-                        key={x[1].id}
-                        id={x[1].id}
+                        item={x[1]}
                         handleDelete = {() => {
                             axios.delete(`https://fitout-shop-default-rtdb.firebaseio.com/${x[0]}.json`)
                                 .then(() => {
                                     const filtered = Object.values(state).filter(prod => prod.id !== x[1].id);
-                                    props.handleSetState(filtered);
+                                    handleSetState(filtered);
                                     history.push('/');
                                 });
                         }}

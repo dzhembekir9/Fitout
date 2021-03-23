@@ -76,6 +76,17 @@ export const StyledItemAction = styled.div`
     }
 `;
 
+export const StyledHeart = styled.img`
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+
+    &:active {
+        width: 35px;
+    }
+`;
+
 export const StyledImage = (props) => {
     return (
         <img style={{width: 'auto', height: '400px'}} src={props.url} alt=""/>
