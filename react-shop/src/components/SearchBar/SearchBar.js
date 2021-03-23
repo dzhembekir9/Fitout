@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { StyledSearchBar, StyledSearchBarWrapper, StyledSearchResultsWrapper, StyledSearchResultsContainer } from '../../utilities/SearchBar/StyledSearchBar'
 
 
-const SearchBar = (props) => {
+const SearchBar = ({state}) => {
 
     const [result, setResult] = useState([]);
 
     const searchItem = (e) => {
         
-        if (e.target.value && props.state) {
-            const res = Object.values(props.state)
+        if (e.target.value && state) {
+            const res = Object.values(state)
             .filter(x => x.title.toLowerCase().includes(e.target.value.toLowerCase()));
 
             if (res[0]) {

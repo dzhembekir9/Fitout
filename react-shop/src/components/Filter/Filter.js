@@ -1,20 +1,20 @@
 import { StyledFilter, StyledFilterWrapper, StyledSelect } from '../../utilities/Filter/StyledFilter'
 
-const Filter = (props) => {
-    const products = Object.values(props.state);
+const Filter = ({state, handleSetState}) => {
+    const products = Object.values(state);
 
     const handleFilter = (e) => {
         
         if (e.target.value === 'default') {
             //TODO
         } else if (e.target.value === 'title-as') {
-            props.handleSetState(products.sort((a, b) => a.title.localeCompare(b.title)));
+            handleSetState(products.sort((a, b) => a.title.localeCompare(b.title)));
         } else if (e.target.value === 'title-des') {
-            props.handleSetState(products.sort((a, b) => b.title.localeCompare(a.title)));
+            handleSetState(products.sort((a, b) => b.title.localeCompare(a.title)));
         } else if (e.target.value === 'price-as') {
-            props.handleSetState(products.sort((a, b) => a.price - b.price));
+            handleSetState(products.sort((a, b) => a.price - b.price));
         } else if (e.target.value === 'price-des') {
-            props.handleSetState(products.sort((a, b) => b.price - a.price));
+            handleSetState(products.sort((a, b) => b.price - a.price));
         }
 
     }

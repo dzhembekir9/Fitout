@@ -8,20 +8,22 @@ import NotFound from '../../components/NotFound/NotFound'
 import ItemDetails from '../../components/ItemDetails/ItemDetails'
 import Cart from '../../components/Cart/Cart'
 
-const Home = (props) => {
+const Main = (props) => {
 
+    const [products, setProducts] = useState({});
     const [isPending, setIsPending] = useState(false);
-    const { isOpen, setIsOpen, displayFooter } = props;
+    const { displayFooter } = props;
     const [cart, setCart] = useState([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [itemsInCart, setItemsInCart] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div>
             <GlobalStyles />
             <Navbar
-                state={props.state}
-                handleSetState={props.handleSetState}
+                state={products}
+                handleSetState={setProducts}
                 isPending={isPending}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
@@ -33,8 +35,8 @@ const Home = (props) => {
             />
             {props.page === 'home' ? 
             <MainContent 
-                state={props.state}
-                handleSetState={props.handleSetState}
+                state={products}
+                handleSetState={setProducts}
                 isPending={isPending}
                 setIsPending={setIsPending}
                 isOpen={isOpen}
@@ -43,8 +45,8 @@ const Home = (props) => {
             /> 
             : props.page === 'create' ? 
             <Create
-                state={props.state}
-                handleSetState={props.handleSetState}
+                state={products}
+                handleSetState={setProducts}
                 isOpen={isOpen}
             /> 
             : props.page === 'not-found' ? 
@@ -53,8 +55,8 @@ const Home = (props) => {
             />
             : props.page === 'details' ?
             <ItemDetails
-                state={props.state}
-                handleSetState={props.handleSetState}
+                state={products}
+                handleSetState={setProducts}
                 isOpen={isOpen}
                 isPending={isPending}
                 setIsPending={setIsPending}
@@ -64,7 +66,7 @@ const Home = (props) => {
                 isOpen={isOpen}
                 cart={cart}
                 setCart={setCart}
-                state={props.state}
+                state={products}
             />
             : null} 
             {!isPending && displayFooter && <Footer />}
@@ -72,4 +74,4 @@ const Home = (props) => {
     );
 }
  
-export default Home;
+export default Main;

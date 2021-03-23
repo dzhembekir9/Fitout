@@ -13,7 +13,7 @@ const ItemDetails = (props) => {
 
     const { isOpen, state, handleSetState, isPending, setIsPending } = props;
     const { id } = useParams();
-    let [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(1);
 
     const url = `https://fitout-shop-default-rtdb.firebaseio.com/.json`;
 

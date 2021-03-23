@@ -12,15 +12,15 @@ import CartPreview from '../../components/CartPreview/CartPreview'
 
 const Navbar = (props) => {
 
-  const { state, isOpen, setIsOpen, isCartOpen, setIsCartOpen, cart, itemsInCart, setItemsInCart } = props;
+  const { state, handleSetState, isOpen, setIsOpen, isCartOpen, setIsCartOpen, cart, itemsInCart, setItemsInCart, isPending } = props;
 
   return (
     <StyledNavbar>
-      {props.isPending && <LoadingBar />}
+      {isPending && <LoadingBar />}
       <StyledLink to="/shop">
         <Logo title="Fitout" />
       </StyledLink>
-      <SearchBar state={props.state} handleSetState={props.handleSetState}/>
+      <SearchBar state={state} handleSetState={handleSetState}/>
       <div style={{position: 'relative'}}>
         <StyledItemsQuantity>{itemsInCart}</StyledItemsQuantity>
         <StyledImg onClick={() => isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true)} src={cartImg} alt="cart"/>
