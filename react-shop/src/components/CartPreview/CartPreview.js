@@ -6,22 +6,18 @@ import { useEffect } from 'react';
 const CartPreview = (props) => {
 
     const { cart, state, setIsCartOpen, setItemsInCart } = props;
-
-    let obj = {};
  
     let totalPriceArr = cart.map(x => Number(x.price));
 
     const totalPrice = totalPriceArr.reduce((a, b) => a + b, 0);
 
-    for (let el in cart) {
-        if (!obj.hasOwnProperty(cart[el].id)) {
-            obj[cart[el].id] = 1;
+    const obj = cart.reduce((acc, item) => {
+        if (!acc[item.id]) {
+            acc[item.id] = 0;
         }
-        else {
-            const count = obj[cart[el].id] + 1;
-            obj[cart[el].id] = count;
-        }
-    }
+        acc[item.id]++;
+        return acc;
+    }, {});
 
     const arr = Object.entries(obj);
 
